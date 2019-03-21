@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Not found
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome</h1>
+    <p>Your book {{search_book}} is not found</p>
+    <br><a href="{{ url_for('index') }}">Logout</a>
+    <br><a href="{{ url_for('search') }}">Search</a>
+    {{ message }}
+{% endblock %}

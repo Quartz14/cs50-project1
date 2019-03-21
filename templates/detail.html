@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Details
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome {{name}}</h1>
+
+
+
+    <ul>
+      <li>Title : {{boo.title}}</li>
+      <li>Author : {{boo.author}}</li>
+      <li>Publication Year : {{boo.year}}</li>
+      <li>ISBN number : {{boo.isbn}}</li>
+      <li>User Reviews : </li>
+      <ol>
+        {% for r in user_review %}
+        <li>Rating: {{r[1]}}</li>
+        <ul>
+          <li>Review :{{r[0]}}</li>
+        </ul>
+        {% endfor %}
+
+      </ol>
+      <li>Average Rating : {{avg}}</li>
+      <li>Number of Ratings : {{rating}}</li>
+      </ul>
+
+
+{% if rr == 0 %}
+
+      <form action="{{ url_for('detail', name=name, isbn=boo.isbn) }}" method="post">
+        <div class="form-group">
+          <p>Add a review</p>
+            <input class="form-control" name="user_review" placeholder="Have you read this book? Please share your thoughts">
+  <br><br>
+        <div class="form-group">
+          <p> Add a rating</p>
+            <input class="form-control" name="user_review_no" placeholder="Rate from 1-5">
+            <br><br>
+
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+
+        </div>
+      </form>
+      {% else %}
+      <h6>You have already submitted a review for this book</h6>
+      {% endif %}
+
+        <br><a href="{{ url_for('index') }}">Logout</a>
+
+
+    {{ message }}
+{% endblock %}

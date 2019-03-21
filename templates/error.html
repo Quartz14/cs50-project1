@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+    <h1>Error</h1>
+    <h4>the password for this user is incorrect</h4>
+    <a href="{{ url_for('index') }}">Try again</a>
+
+    {{ message }}
+{% endblock %}

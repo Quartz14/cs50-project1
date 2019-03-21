@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book found
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome</h1>
+    <p>Your book is found {{name}}</p>
+    {% for book in s_list %}
+      <li><a href="{{ url_for('detail', name=name, isbn=book.isbn) }}">{{book.title}}</a></li>
+    {% endfor %}
+    <br><a href="{{ url_for('index') }}">Logout</a>
+
+    {{ message }}
+{% endblock %}
